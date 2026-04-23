@@ -11,7 +11,12 @@
 __syscall_cp_asm:
 __cp_begin:
 	lw t0, 0(a0)
-	bnez t0, __cp_cancel
+
+	bmovs b0, .bnez
+	bmovt b0, __cp_cancel
+	bmovc_bne b0, t0, zero
+.bnez:
+	pb b0
 
 	mv t0, a1
 	mv a0, a2
