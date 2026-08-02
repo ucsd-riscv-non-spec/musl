@@ -4,7 +4,10 @@
 .type __tlsdesc_static,%function
 __tlsdesc_static:
 	ld a0,8(a0)
-	jr t0
+	bmovs b0, .__tlsdesc_static_jr_t0
+	bmovt b0, t0, 0
+.__tlsdesc_static_jr_t0:
+	pb b0
 
 .global __tlsdesc_dynamic
 .hidden __tlsdesc_dynamic
@@ -29,4 +32,8 @@ __tlsdesc_dynamic:
 	ld t1,(sp)
 	ld t2,8(sp)
 	add sp,sp,16
-	jr t0
+	bmovs b0, .__tlsdesc_dynamic_jr_t0
+	bmovt b0, t0, 0
+.__tlsdesc_dynamic_jr_t0:
+	pb b0
+

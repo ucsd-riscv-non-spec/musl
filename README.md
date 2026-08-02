@@ -7,7 +7,7 @@ CC=clang-21 ./configure --prefix=/path/to/install --disable-shared
 ```
 
 > [!NOTE]
-> `--enable-optimize=off` and `--enable-debug` may also be useful.
+> `--enable-optimize=no` and `--enable-debug` may also be useful.
 
 ## How to build
 ```
@@ -16,7 +16,7 @@ make install
 
 ## How to use MUSL LibC
 
-Easiest way to to just add `--sysroot=/path/to/install` to your compiler flags.
+Easiest way is to just add `--sysroot=/path/to/install` to your compiler flags.
 
 # About
 
